@@ -6,10 +6,10 @@ export default config({
     kind: 'local',
   },
   collections: {
-    posts: collection({
-      label: 'Posts',
+    blog: collection({
+      label: 'Blog',
       slugField: 'title',
-      path: 'src/content/posts/*',
+      path: 'src/content/blog/*',
       entryLayout: "content",
 			columns: ["title", "datePublished"],
       format: { contentField: 'content' },
