@@ -7,7 +7,7 @@ export default config({
   },
   ui: {
     brand: {
-    name: 'Keystatic Milen', // NAME OF YOUR SITE 
+    name: '2 Aquarius', // NAME OF YOUR SITE 
     }
   },
   collections: {
