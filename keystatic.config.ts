@@ -6,7 +6,9 @@ export default config({
     kind: 'local',
   },
   ui: {
+    brand: {
     name: 'Keystatic Milen', // NAME OF YOUR SITE 
+    }
   },
   collections: {
     blog: collection({
