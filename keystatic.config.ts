@@ -54,11 +54,11 @@ export default config({
           label: "SEO Description",
           multiline: true,
         }),
-        // ogImage: fields.image({
-        //   label: "Image",
-        //   directory: "src/assets/images/pages",
-        //   publicPath: "../../assets/images/pages/",
-        // }),
+        ogImage: fields.image({
+          label: "Image",
+          directory: "src/assets/images/pages",
+          publicPath: "../../assets/images/pages/",
+        }),
         // noIndex: fields.checkbox({
         //   label: "Don't index the page",
         //   defaultValue: false,
