@@ -5,6 +5,9 @@ export default config({
   storage: {
     kind: 'local',
   },
+  ui: {
+    name: 'Keystatic Milen', // NAME OF YOUR SITE 
+  },
   collections: {
     blog: collection({
       label: 'Blog',
