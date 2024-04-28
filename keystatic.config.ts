@@ -1,6 +1,8 @@
 // keystatic.config.ts
 import { config, fields, collection } from '@keystatic/core';
 
+import { z } from 'zod'
+
 export default config({
   storage: {
     kind: 'local',
@@ -16,7 +18,7 @@ export default config({
       slugField: 'title',
       path: 'src/content/blog/*',
       entryLayout: "content",
-			columns: ["title", "datePublished"],
+			columns: ["title", "publishDate"],
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
@@ -24,16 +26,17 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
-				datePublished: fields.datetime({
-					defaultValue: { kind: "now" },
+				publishDate: fields.date({
+					defaultValue: { kind: "today" },
 					label: "Date of the publication",
 				}),
         tags: fields.multiselect({
 					label: "Tags",
 					options: [{ label: "Tag", value: "Tag" }],
 				}),
-        content: fields.mdx({
+        content: fields.markdoc({
           label: 'Content',
+          extension: 'md',
           // formatting: true,
           // dividers: true,
           // links: true,
@@ -63,8 +66,9 @@ export default config({
         //   label: "Don't index the page",
         //   defaultValue: false,
         // }),
-        content: fields.mdx({
-          label: "Content",
+        content: fields.markdoc({
+          label: 'Content',
+          extension: 'md',
           options: {
             image: {
               directory: "src/assets/images/pages",
