@@ -32,12 +32,12 @@ export default config({
 					label: "Tags",
 					options: [{ label: "Tag", value: "Tag" }],
 				}),
-        content: fields.document({
+        content: fields.mdx({
           label: 'Content',
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: true,
+          // formatting: true,
+          // dividers: true,
+          // links: true,
+          // images: true,
         }),
       },
     }),
@@ -46,7 +46,7 @@ export default config({
       slugField: "title",
       path: "src/content/pages/*",
       entryLayout: "content",
-      columns: ["title", "description", "noIndex"],
+      columns: ["title", "description"],
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "SEO Title" } }),
@@ -54,24 +54,24 @@ export default config({
           label: "SEO Description",
           multiline: true,
         }),
-        ogImage: fields.image({
-          label: "Image",
-          directory: "src/assets/images/pages",
-          publicPath: "../../assets/images/pages/",
-        }),
-        noIndex: fields.checkbox({
-          label: "Don't index the page",
-          defaultValue: false,
-        }),
-        // content: fields.mdx({
-        //   label: "Content",
-        //   options: {
-        //     image: {
-        //       directory: "src/assets/images/pages",
-        //       publicPath: "../../assets/images/pages/",
-        //     },
-        //   },
+        // ogImage: fields.image({
+        //   label: "Image",
+        //   directory: "src/assets/images/pages",
+        //   publicPath: "../../assets/images/pages/",
         // }),
+        // noIndex: fields.checkbox({
+        //   label: "Don't index the page",
+        //   defaultValue: false,
+        // }),
+        content: fields.mdx({
+          label: "Content",
+          options: {
+            image: {
+              directory: "src/assets/images/pages",
+              publicPath: "../../assets/images/pages/",
+            },
+          },
+        }),
       },
     })
   },
