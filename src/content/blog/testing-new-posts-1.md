@@ -2,10 +2,11 @@
 title: Testing new posts 1
 description: Post Description
 publishDate: 2024-04-28
-tags: []
+tags:
+  - article
+seoSchema: Test schema
 ---
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat nibh bibendum, vehicula turpis sit amet, iaculis libero. Sed felis erat, tincidunt quis interdum sed, cursus vel quam. In hac habitasse platea **dictumst**. _Donec eget molestie sem,_~~_al_~~~~iquet malesuada odio~~.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat nibh bibendum, vehicula turpis sit amet, iaculis libero. Sed felis erat, tincidunt quis interdum sed, cursus vel quam. In hac habitasse platea **dictumst**. *Donec eget molestie sem,*~~*al*~~~~iquet malesuada odio~~.
 
 ---
 
