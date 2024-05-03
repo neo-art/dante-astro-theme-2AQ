@@ -74,15 +74,13 @@ export default config({
                 //         }
                 //     }
                 // }),
-                seo: fields.array(
-                    fields.relationship({
-                        label: 'Seo',
-                        collection: 'seoSchema',
-                        validation: {
-                            isRequired: false
-                        }
-                    })
-                ),
+                seo: fields.relationship({
+                    label: 'Seo',
+                    collection: 'seoSchema',
+                    validation: {
+                        isRequired: false
+                    }
+                }),
                 content: fields.markdoc({
                     label: 'Content',
                     extension: 'md'
@@ -97,6 +95,7 @@ export default config({
         seoSchema: collection({
             label: 'seoSchema',
             slugField: 'title',
+            path: 'src/content/seoSchema/*',
             schema: {
                 title: fields.slug({ name: { label: 'Title' } }),
                 description: fields.text({
@@ -117,6 +116,7 @@ export default config({
                 }),
                 pageType: fields.select({
                     label: 'Page Type',
+                    description: 'Type of this page',
                     options: [
                         { label: 'Website', value: 'website' },
                         { label: 'Article', value: 'article' }
