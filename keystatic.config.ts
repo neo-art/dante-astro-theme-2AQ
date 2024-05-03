@@ -45,31 +45,44 @@ export default config({
                     label: 'Is featured?',
                     defaultValue: false
                 }),
-                tags: fields.multiselect({
-                    label: 'Tags',
-                    options: [
-                        { label: 'Video', value: 'video' },
-                        { label: 'Article', value: 'article' },
-                        { label: 'Recipe', value: 'recipe' }
-                    ],
-                    defaultValue: ['article']
-                }),
-                seoSchema: fields.text({
-                    label: 'seoSchema',
-                    multiline: true,
-                    description: 'seoSchema',
-                    validation: {
-                        isRequired: true,
-                        length: {
-                            min: 5,
-                            max: 120
-                        }
+                tags: fields.array(
+                    fields.text({ label: 'Tags' }),
+                    // Labelling options
+                    {
+                        label: 'Tags',
+                        itemLabel: (props) => props.value
                     }
-                }),
-                seo: fields.relationship({
-                    label: 'SEO',
-                    collection: 'seoSchema'
-                }),
+                ),
+                // tags: fields.multiselect({
+                //     label: 'Tags',
+                //     options: [
+                //         { label: 'Video', value: 'video' },
+                //         { label: 'Article', value: 'article' },
+                //         { label: 'Recipe', value: 'recipe' }
+                //     ],
+                //     defaultValue: ['article']
+                // }),
+                // seoSchema: fields.text({
+                //     label: 'seoSchema',
+                //     multiline: true,
+                //     description: 'seoSchema',
+                //     validation: {
+                //         isRequired: true,
+                //         length: {
+                //             min: 5,
+                //             max: 120
+                //         }
+                //     }
+                // }),
+                seo: fields.array(
+                    fields.relationship({
+                        label: 'Seo',
+                        collection: 'seoSchema',
+                        validation: {
+                            isRequired: false
+                        }
+                    })
+                ),
                 content: fields.markdoc({
                     label: 'Content',
                     extension: 'md'
@@ -80,6 +93,7 @@ export default config({
                 })
             }
         }),
+
         seoSchema: collection({
             label: 'seoSchema',
             slugField: 'title',
@@ -111,6 +125,7 @@ export default config({
                 })
             }
         }),
+
         projects: collection({
             label: 'Projects',
             slugField: 'title',
@@ -144,6 +159,7 @@ export default config({
                 })
             }
         }),
+
         pages: collection({
             label: 'Pages',
             slugField: 'title',
