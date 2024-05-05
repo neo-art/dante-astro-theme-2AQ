@@ -53,15 +53,6 @@ export default config({
                         itemLabel: (props) => props.value
                     }
                 ),
-                // tags: fields.multiselect({
-                //     label: 'Tags',
-                //     options: [
-                //         { label: 'Video', value: 'video' },
-                //         { label: 'Article', value: 'article' },
-                //         { label: 'Recipe', value: 'recipe' }
-                //     ],
-                //     defaultValue: ['article']
-                // }),
                 // seoSchema: fields.text({
                 //     label: 'seoSchema',
                 //     multiline: true,
@@ -102,7 +93,7 @@ export default config({
                     label: 'seoSchema Description',
                     multiline: true,
                     validation: {
-                        isRequired: true,
+                        isRequired: false,
                         length: {
                             min: 5,
                             max: 120
@@ -113,6 +104,12 @@ export default config({
                     label: 'Image',
                     directory: 'src/assets/images/pages',
                     publicPath: '../../assets/images/pages/'
+                }),
+                imageAlt: fields.text({
+                    label: 'ImageAlt',
+                    validation: {
+                        isRequired: false
+                    }
                 }),
                 pageType: fields.select({
                     label: 'Page Type',
