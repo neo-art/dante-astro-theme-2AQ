@@ -111,6 +111,12 @@ export default config({
                         isRequired: false
                     }
                 }),
+                src: fields.text({
+                    label: 'Src',
+                    validation: {
+                        isRequired: false
+                    }
+                }),
                 pageType: fields.select({
                     label: 'Page Type',
                     description: 'Type of this page',
